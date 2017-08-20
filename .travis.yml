@@ -1,0 +1,20 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+
+script:
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH | tr / - ; fi`
+  - docker build -t sqroot/nginx:$TAG .
+  - docker push sqroot/nginx:$TAG
+  - docker rmi sqroot/nginx:$TAG
+
+after_script:
+  - docker logout
+
+notifications:
+  email:
+    recipients:
+      - alert@westfall.sqroot.eu
