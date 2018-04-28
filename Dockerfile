@@ -10,3 +10,4 @@ RUN chgrp -R 0 /var/log/nginx /var/cache/nginx/ /var/run/ /etc/nginx && \
 
 COPY common-server.conf /etc/nginx/common-server.conf
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY default.conf /etc/nginx/conf.d/
