@@ -14,6 +14,12 @@ COPY html /usr/share/nginx/html
 
 The web server listens on port `8080`.
 
+## Build
+
+```
+docker buildx build --platform=linux/amd64 -t sqroot/nginx .
+```
+
 ## License
 
 [MIT license](https://en.wikipedia.org/wiki/MIT_License)
