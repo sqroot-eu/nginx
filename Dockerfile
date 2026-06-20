@@ -1,4 +1,4 @@
-FROM nginx:1.31.0-alpine
+FROM nginx:1.31.2-alpine
 LABEL maintainer="Ando Roots <ando@sqroot.eu>"
 
 EXPOSE 8080
